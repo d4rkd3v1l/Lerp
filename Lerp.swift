@@ -107,6 +107,24 @@ extension CGPoint: Lerpable {
 
 }
 
+extension CGSize: Lerpable {
+
+    /// Linear interpolation
+    public func lerp(min: CGSize, max: CGSize) -> CGSize {
+        let width = self.width.lerp(min: min.width, max: max.width)
+        let height = self.height.lerp(min: min.height, max: max.height)
+        return CGSize(width: width, height: height)
+    }
+
+    /// Inverse linear interpolation
+    public func ilerp(min: CGSize, max: CGSize) -> CGSize {
+        let width = self.width.ilerp(min: min.width, max: max.width)
+        let height = self.height.ilerp(min: min.height, max: max.height)
+        return CGSize(width: width, height: height)
+    }
+
+}
+
 // MARK: CGPoint lerpable extension
 
 extension CGPoint {
